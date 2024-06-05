@@ -85,9 +85,6 @@ jobs:
         with:
           target: armv7-unknown-linux-gnueabihf
 
-      - name: Build image
-        run: docker build -t cross/cpal_armv7:v1 ./
-
       - name: Install cross
         run: cargo install cross
 
@@ -106,7 +103,7 @@ jobs:
   asmjs-wasm32-test:
     strategy:
       matrix:
-        target: [asmjs-unknown-emscripten, wasm32-unknown-emscripten]
+        target: [wasm32-unknown-emscripten]
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
